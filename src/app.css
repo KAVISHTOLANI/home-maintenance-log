@@ -1,0 +1,197 @@
+/* Upkeep specific styles */
+.hero-up {
+  display: grid;
+  gap: 16px;
+}
+.hero-up-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.hero-up-kpis div {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: grid;
+}
+.hero-up-kpis b {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.hero-up-kpis span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.due-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.due-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  animation: row-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+.due-when {
+  display: grid;
+  text-align: center;
+  line-height: 1.1;
+  padding: 6px 0;
+  border-radius: var(--radius-sm);
+}
+.due-when strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: var(--display-weight);
+}
+.due-when small {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.is-overdue .due-when {
+  background: var(--err-soft);
+  color: var(--err);
+}
+.is-soon .due-when {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+.due-what {
+  display: grid;
+  min-width: 0;
+}
+.due-task {
+  font-weight: 600;
+}
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.life-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.life-list .row-between {
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.progress.is-near > span {
+  background: var(--warn);
+}
+.progress.is-over > span {
+  background: var(--err);
+}
+.cat-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.cat-bars li {
+  display: grid;
+  grid-template-columns: minmax(90px, 140px) minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+.cat-name {
+  font-size: 0.9rem;
+}
+.cat-track {
+  height: 14px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.cat-track span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transform-origin: left;
+  animation: grow-x 0.8s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+.chart-fig {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-left: 2px solid var(--border);
+}
+.timeline-list li {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 14px;
+  padding: 10px 0 10px 16px;
+  position: relative;
+}
+.timeline-list li::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.tl-date {
+  color: var(--muted);
+  padding-top: 2px;
+}
+.stack-tight {
+  display: grid;
+  gap: 4px;
+}
+.stat-value.small-val {
+  font-size: 1.45rem;
+}
+@media (max-width: 640px) {
+  .timeline-list li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .due-row {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+  .due-row .btn {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .due-row,
+  .cat-track span {
+    animation: none;
+  }
+}
