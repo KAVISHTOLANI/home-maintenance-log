@@ -2,7 +2,7 @@
 
 A home maintenance log for every appliance and system: install dates and expected lifespans, recurring maintenance with due dates, a full service history with costs, and a dashboard of what’s due and what it has cost.
 
-**Live demo:** [https://upkeep.vercel.app/](https://upkeep.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
+**Live demo:** [https://upkeep-log.vercel.app/](https://upkeep-log.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
 
 ![Landing with maintenance due](docs/landing.png)
 
